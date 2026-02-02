@@ -23,7 +23,7 @@ let content_file = Mirage_kv.Key.v "content"
 let big_file = Mirage_kv.Key.v "big_file"
 let directory = Mirage_kv.Key.v "a_directory"
 
-module KV = Mirage_kv_unix
+module KV = Mirage_kv_unikraft
 
 let lwt_run f () = Lwt_main.run (f ())
 let assert_fail e = Alcotest.failf "%a" KV.pp_error e

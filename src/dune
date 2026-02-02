@@ -1,4 +1,4 @@
 (library
- (name mirage_kv_unix)
- (public_name mirage-kv-unix)
- (libraries mirage-kv lwt.unix ptime optint))
+ (name mirage_kv_unikraft)
+ (public_name mirage-kv-unikraft)
+ (libraries mirage-kv unix lwt ptime optint))
