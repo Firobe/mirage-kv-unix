@@ -83,6 +83,8 @@ let resolve_filename base key =
   in
   Lwt.return ret
 
+module Lwt_unix = Mini_lwt_unix
+
 let get_aux { base } ?offset ?length key =
   let*? path = resolve_filename base key in
   let size stat =
@@ -113,7 +115,7 @@ let get_aux { base } ?offset ?length key =
             let buffer = Bytes.create size in
             let+ read_bytes = Lwt_unix.read fd buffer 0 size in
             if read_bytes = size then Ok (Bytes.unsafe_to_string buffer)
-            else err_read key size
+            else err_read key read_bytes
           else Lwt.return (err_value_expected key))
         (fun () -> Lwt_unix.close fd))
     (function

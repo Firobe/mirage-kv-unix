@@ -6,7 +6,15 @@ let wrap4 f a b c d = Lwt.return (f a b c d)
 include Unix
 
 let openfile = wrap3 openfile
-let read = wrap4 read
+
+external stub_read : Unix.file_descr -> Bytes.t -> int -> int -> int
+  = "lwt_unix_read"
+
+let read fd buf pos len =
+  if pos < 0 || len < 0 || pos > Bytes.length buf - len then
+    invalid_arg "Lwt_unix.read"
+  else Lwt.return (stub_read fd buf pos len)
+
 let close = wrap1 close
 let mkdir = wrap2 mkdir
 let unlink = wrap1 unlink

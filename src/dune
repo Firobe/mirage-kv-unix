@@ -1,4 +1,8 @@
 (library
  (name mirage_kv_unikraft)
  (public_name mirage-kv-unikraft)
- (libraries mirage-kv unix lwt ptime optint))
+ (libraries mirage-kv unix lwt ptime optint)
+ (foreign_stubs
+   (language c)
+   (names mini_lwt_unix_stubs))
+ )
