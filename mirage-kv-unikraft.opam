@@ -1,11 +1,9 @@
 opam-version: "2.0"
-authors:      [ "Mindy Preston" "Hannes Mehnert" "Anil Madhavapeddy"
-                "Thomas Gazagnaire" "Stefanie Schirmer" ]
-maintainer:   [ "anil@recoil.org" "thomas@gazagnaire.org" ]
-homepage:     "https://github.com/mirage/mirage-kv-unix"
-dev-repo:     "git+https://github.com/mirage/mirage-kv-unix.git"
-bug-reports:  "https://github.com/mirage/mirage-kv-unix/issues"
-doc:          "https://mirage.github.io/mirage-kv-unix/"
+authors:      [ "Virgile Robles" ]
+maintainer:   [ "virgile.robles@pm.me" ]
+homepage:     "https://github.com/Firobe/mirage-kv-unikraft"
+dev-repo:     "git+https://github.com/Firobe/mirage-kv-unikraft.git"
+bug-reports:  "https://github.com/Firobe/mirage-kv-unikraft/issues"
 tags:         [ "org:mirage" ]
 license:      "ISC"
 build: [
@@ -26,7 +24,7 @@ depends: [
   "mirage-clock-unix" {with-test & >= "3.0.0"}
   "alcotest" {with-test & >= "0.8.1"}
 ]
-synopsis: "Key-value store for MirageOS backed by Unix filesystem"
+synopsis: "Key-value store for MirageOS backed by Unix filesystem, for Unikraft"
 description: """
 This is a Mirage key-value store backed by an underlying Unix directory.
 
